@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudyHub — Mon espace de travail</title>
+<style>
+:root{--bg:#070711;--panel:#111020;--panel2:#0c0b18;--line:#3a2558;--text:#f6f0ff;--muted:#b1a1c9;--purple:#ff38dc;--purple2:#8b35ff;--cyan:#25f4ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#45105b 0,transparent 36%),radial-gradient(ellipse at 5% 35%,#071e39 0,transparent 35%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:11px;background:#192340;color:var(--text);padding:9px 13px}button:hover{border-color:var(--purple)}button.primary{background:linear-gradient(120deg,var(--purple2),var(--purple));border:0}input,textarea,select{width:100%;background:#0a1222;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:10px;outline:none}input:focus,textarea:focus{border-color:var(--purple)}textarea{resize:vertical;min-height:100px}.app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}.sidebar{border-right:1px solid var(--line);padding:24px 15px;display:flex;flex-direction:column;gap:8px;background:#080e1c}.brand{font-size:22px;font-weight:800;padding:0 12px 24px;letter-spacing:-.5px}.brand span{color:#aa8cff}.nav{display:flex;align-items:center;gap:12px;text-align:left;background:transparent;border-color:transparent;color:var(--muted)}.nav.active{background:#28205b;color:white;border-color:#41347e}.sidebottom{margin-top:auto;color:var(--muted);font-size:12px;padding:15px 10px}.main{padding:28px;max-width:1600px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:22px}.eyebrow{color:#b49bff;font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:700}.top h1{margin:3px 0;font-size:clamp(26px,3vw,38px);letter-spacing:-1px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:1.1fr 1.1fr .9fr;gap:16px}.card{background:linear-gradient(145deg,#171126,#0b101f);border:1px solid var(--line);border-radius:18px;padding:19px;min-width:0;box-shadow:0 0 22px #8b35ff12,inset 0 0 18px #ff38dc05}.card h2{font-size:16px;margin:0 0 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}.timer-card{grid-row:span 1}.timer-layout{display:flex;align-items:center;gap:16px;justify-content:center;flex-wrap:wrap}.timer{width:190px;height:190px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--purple) 0deg,#252e4a 0deg);position:relative}.timer:before{content:"";position:absolute;inset:8px;border-radius:50%;background:#10182b}.timer-inner{position:relative;text-align:center}.time{font-size:36px;font-weight:750;letter-spacing:-1px}.timer-inner small{display:block;color:var(--muted)}.timer-buttons{display:flex;justify-content:center;gap:8px;margin-top:12px}.timer-options{display:flex;gap:6px;justify-content:center;margin-top:15px;flex-wrap:wrap}.timer-options button{font-size:12px;padding:7px 9px}.timer-options button.chosen{background:#38286f;border-color:#7959dd}.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.task-list,.note-list{display:flex;flex-direction:column;gap:8px}.task{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #202b43}.task input{width:17px;height:17px;accent-color:var(--purple)}.task.done span{text-decoration:line-through;color:#7180a3}.task span{flex:1;overflow-wrap:anywhere}.mini-form{display:flex;gap:8px;margin:12px 0}.mini-form input{min-width:0}.mini-form button{white-space:nowrap}.progress{height:7px;background:#202b43;border-radius:99px;overflow:hidden;margin-top:18px}.progress div{height:100%;background:linear-gradient(90deg,var(--purple),var(--cyan));width:0;transition:width .2s}.statline{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:8px}.note-item{padding:10px;border-radius:11px;background:#0b1323;border:1px solid #202b43;cursor:pointer}.note-item:hover{border-color:#7755d8}.note-item strong{display:block}.note-item small{color:var(--muted)}.note-editor{display:grid;gap:9px}.flash-area{text-align:center;display:grid;gap:12px}.flashcard{min-height:145px;display:grid;place-items:center;padding:20px;background:linear-gradient(145deg,#21194b,#10182b);border:1px solid #49387e;border-radius:15px;font-size:19px;cursor:pointer;white-space:pre-wrap;overflow-wrap:anywhere}.flash-actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.music-box{background:linear-gradient(135deg,#29113f,#10192d);border:1px solid #67317c;border-radius:13px;padding:14px;box-shadow:inset 0 0 24px #ff38dc0b}.sound-row{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:10px 0;border-bottom:1px solid #30213f}.sound-row:last-child{border-bottom:0}.sound-row label{display:flex;align-items:center;gap:9px}.sound-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--purple)}input[type=range]{padding:0;accent-color:var(--cyan)}.music-status{color:var(--cyan);font-size:12px;text-transform:uppercase;letter-spacing:1px}.music-box p{margin:5px 0 12px}.music-links{display:flex;gap:8px;flex-wrap:wrap}.music-links a{color:#cbbaff}.full{grid-column:1/-1}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}.empty{color:var(--muted);font-size:13px;padding:10px 0}.toast{position:fixed;bottom:20px;right:20px;background:#21194b;border:1px solid #5b45a0;border-radius:12px;padding:12px 16px;display:none}.small{font-size:12px}.hidden{display:none!important}
+@media(max-width:1100px){.grid{grid-template-columns:1fr 1fr}.music-card{grid-column:1/-1}.app{grid-template-columns:180px 1fr}.main{padding:20px}}
+@media(max-width:720px){.app{display:block}.sidebar{position:sticky;top:0;z-index:3;display:flex;flex-direction:row;overflow:auto;padding:9px;background:#080e1cf2;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:8px;font-size:17px;white-space:nowrap}.nav{white-space:nowrap;padding:8px}.sidebottom{display:none}.main{padding:16px}.grid,.two-col{grid-template-columns:1fr}.music-card,.full{grid-column:auto}.top{align-items:flex-start}.timer{width:170px;height:170px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand">✦ Study<span>Hub</span></div>
+  <button class="nav active" data-go="accueil">⌂ Accueil</button>
+  <button class="nav" data-go="notes">▤ Notes</button>
+  <button class="nav" data-go="flashcards">▱ Flashcards</button>
+  <button class="nav" data-go="pomodoro">◷ Pomodoro</button>
+  <button class="nav" data-go="planning">✓ Objectifs</button>
+  <div class="sidebottom">Ton coin pour apprendre à ton rythme ✨<br><br>Version locale · v0.1</div>
+</aside>
+<main class="main">
+  <header class="top"><div><div class="eyebrow">Ton espace de concentration</div><h1>On s'y met ? <span>🌙</span></h1><div class="muted">Un petit pas aujourd'hui, un grand progrès demain.</div></div><div class="muted" id="today"></div></header>
+  <div class="grid">
+    <section class="card timer-card" id="pomodoro">
+      <h2>🍅 Pomodoro <span class="muted small">FOCUS TIME</span></h2>
+      <div class="timer-layout"><div><div class="timer" id="timerRing"><div class="timer-inner"><div class="time" id="time">25:00</div><small id="timerLabel">Session de travail</small></div></div><div class="timer-buttons"><button class="primary" id="startBtn">▶ Démarrer</button><button id="resetBtn">↺</button></div></div></div>
+      <div class="timer-options"><button class="chosen" data-min="25" data-label="Session de travail">25 min focus</button><button data-min="5" data-label="Petite pause">5 min pause</button><button data-min="15" data-label="Longue pause">15 min pause</button></div>
+      <p class="muted small" style="text-align:center;margin:13px 0 0">Astuce : éloigne ton téléphone et choisis une seule tâche.</p>
+    </section>
+    <section class="card" id="planning">
+      <h2>☑ Mes objectifs <span class="muted small" id="taskCount">0 tâche</span></h2>
+      <form class="mini-form" id="taskForm"><input id="taskInput" placeholder="Ex. Réviser les maths…" maxlength="120" required><button class="primary">＋</button></form>
+      <div class="task-list" id="tasks"></div><div class="progress"><div id="taskProgress"></div></div><div class="statline"><span>Progression du jour</span><span id="taskPercent">0 %</span></div>
+    </section>
+    <section class="card music-card" id="ambiance">
+      <h2>♫ Cyberwave <span class="music-status" id="audioStatus">AUDIO OFFLINE</span></h2>
+      <div class="music-box"><div style="font-size:35px">🌃 ⚡ 🎧</div><strong>Ta station de concentration</strong><p class="muted small">Génère une ambiance directement dans ton navigateur, sans fichier audio ni compte.</p>
+        <div class="sound-row"><label><input type="checkbox" id="rainToggle"> 🌧️ Pluie sur la ville</label><span class="muted small">NOISE</span></div>
+        <div class="sound-row"><label><input type="checkbox" id="droneToggle"> 🌌 Synthé spatial</label><span class="muted small">AMBIENT</span></div>
+        <div class="sound-row"><label><input type="checkbox" id="toneToggle"> ✨ Pulsation douce</label><span class="muted small">FOCUS</span></div>
+        <div style="margin-top:14px"><label for="volume" class="small">Volume général</label><input id="volume" type="range" min="0" max="100" value="25"></div>
+        <div class="music-links" style="margin-top:14px"><button class="primary" id="audioStart">▶ Activer l'ambiance</button><button id="audioStop">■ Tout couper</button></div>
+      </div>
+      <p class="muted small">Les sons sont synthétisés localement. Active-les après avoir cliqué sur le bouton, puis mélange les couches comme tu veux.</p>
+      <div class="music-links"><a href="https://www.youtube.com/results?search_query=cyberpunk+ambient+music" target="_blank" rel="noreferrer">Cyberpunk sur YouTube ↗</a><a href="https://www.youtube.com/results?search_query=lofi+study+music" target="_blank" rel="noreferrer">Lo-fi ↗</a></div>
+    </section>
+    <section class="card" id="notes">
+      <h2>▤ Mes notes <button id="newNoteBtn" class="primary">＋ Nouvelle note</button></h2>
+      <div class="two-col">
+        <div><div id="noteList" class="note-list"></div></div>
+        <div class="note-editor"><input id="noteTitle" placeholder="Titre de la note"><textarea id="noteBody" placeholder="Écris ton cours ici…"></textarea><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="primary" id="saveNote">Enregistrer</button><button id="deleteNote">Supprimer</button></div><div class="muted small">Tes notes sont sauvegardées sur cet appareil.</div></div>
+      </div>
+    </section>
+    <section class="card" id="flashcards">
+      <h2>▱ Flashcards <span class="muted small" id="deckCount">0 carte</span></h2>
+      <div class="flash-area"><div class="flashcard" id="flashDisplay">Crée ta première carte pour réviser ✨</div><div class="muted small" id="flashHint">Clique sur la carte pour retourner la face.</div><div class="flash-actions"><button id="prevCard">← Précédente</button><button class="primary" id="flipCard">Retourner</button><button id="nextCard">Suivante →</button></div></div>
+      <details style="margin-top:16px"><summary style="cursor:pointer;color:#cbbaff">＋ Créer une flashcard</summary><form id="flashForm" class="note-editor" style="margin-top:12px"><input id="question" placeholder="Question / recto" required maxlength="300"><textarea id="answer" placeholder="Réponse / verso" required maxlength="1000" style="min-height:70px"></textarea><button class="primary">Ajouter la carte</button></form></details>
+      <button id="deleteFlash" style="margin-top:12px">Supprimer cette carte</button>
+    </section>
+  </div>
+  <p class="muted small" style="text-align:center;margin-top:22px">Fait avec 💜 pour tes futures sessions de révision.</p>
+</main>
+</div><div class="toast" id="toast"></div>
+<script>
+const $=s=>document.querySelector(s);
+const load=(k,d)=>{try{return JSON.parse(localStorage.getItem('studyhub_'+k))??d}catch{return d}};
+const store=(k,v)=>localStorage.setItem('studyhub_'+k,JSON.stringify(v));
+let tasks=load('tasks',[]),notes=load('notes',[]),cards=load('cards',[]),activeNote=null,cardIndex=0,flipped=false;
+$('#today').textContent=new Intl.DateTimeFormat('fr-FR',{weekday:'long',day:'numeric',month:'long'}).format(new Date());
+function toast(msg){let t=$('#toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));b.classList.add('active');const el=document.getElementById(b.dataset.go);el?.scrollIntoView({behavior:'smooth',block:'start'})}));
+function renderTasks(){let box=$('#tasks');box.innerHTML='';tasks.forEach((t,i)=>{let row=document.createElement('label');row.className='task'+(t.done?' done':'');let cb=document.createElement('input');cb.type='checkbox';cb.checked=t.done;cb.addEventListener('change',()=>{tasks[i].done=cb.checked;store('tasks',tasks);renderTasks()});let span=document.createElement('span');span.textContent=t.text;let del=document.createElement('button');del.textContent='×';del.title='Supprimer';del.style.padding='3px 9px';del.addEventListener('click',e=>{e.preventDefault();tasks.splice(i,1);store('tasks',tasks);renderTasks()});row.append(cb,span,del);box.append(row)});if(!tasks.length)box.innerHTML='<div class="empty">Aucune tâche pour le moment. Ajoute un objectif ✨</div>';let done=tasks.filter(t=>t.done).length,p=tasks.length?Math.round(done/tasks.length*100):0;$('#taskCount').textContent=tasks.length+' tâche'+(tasks.length>1?'s':'');$('#taskPercent').textContent=p+' %';$('#taskProgress').style.width=p+'%'}
+$('#taskForm').addEventListener('submit',e=>{e.preventDefault();let text=$('#taskInput').value.trim();if(!text)return;tasks.push({text,done:false});store('tasks',tasks);$('#taskInput').value='';renderTasks()});
+function renderNotes(){let box=$('#noteList');box.innerHTML='';if(!notes.length)box.innerHTML='<div class="empty">Tes notes apparaîtront ici.</div>';notes.forEach(n=>{let b=document.createElement('button');b.className='note-item';b.style.textAlign='left';b.innerHTML='';let strong=document.createElement('strong');strong.textContent=n.title||'Note sans titre';let small=document.createElement('small');small.textContent=n.body.slice(0,55)||'Note vide';b.append(strong,small);b.addEventListener('click',()=>openNote(n.id));box.append(b)})}
+function openNote(id){let n=notes.find(x=>x.id===id);activeNote=n?.id??null;$('#noteTitle').value=n?.title??'';$('#noteBody').value=n?.body??''}
+$('#newNoteBtn').addEventListener('click',()=>openNote(null));
+$('#saveNote').addEventListener('click',()=>{let title=$('#noteTitle').value.trim(),body=$('#noteBody').value;if(!title&&!body){toast('Écris quelque chose avant de sauvegarder.');return}if(activeNote){let n=notes.find(x=>x.id===activeNote);if(n){n.title=title;n.body=body}}else{activeNote=Date.now();notes.unshift({id:activeNote,title,body})}store('notes',notes);renderNotes();toast('Note enregistrée ✓')});
+$('#deleteNote').addEventListener('click',()=>{if(!activeNote){$('#noteTitle').value='';$('#noteBody').value='';return}notes=notes.filter(n=>n.id!==activeNote);activeNote=null;store('notes',notes);renderNotes();$('#noteTitle').value='';$('#noteBody').value='';toast('Note supprimée')});
+function renderCard(){let c=cards[cardIndex];$('#deckCount').textContent=cards.length+' carte'+(cards.length>1?'s':'');$('#flashDisplay').textContent=c?(flipped?c.answer:c.question):'Crée ta première carte pour réviser ✨';$('#flashHint').textContent=c?`${cardIndex+1} / ${cards.length} · clique pour retourner`:'Tes questions et réponses apparaîtront ici.';$('#prevCard').disabled=!cards.length;$('#nextCard').disabled=!cards.length;$('#flipCard').disabled=!cards.length;$('#deleteFlash').disabled=!cards.length}
+function flip(){if(cards.length){flipped=!flipped;renderCard()}}$('#flashDisplay').addEventListener('click',flip);$('#flipCard').addEventListener('click',flip);
+$('#prevCard').addEventListener('click',()=>{if(cards.length){cardIndex=(cardIndex-1+cards.length)%cards.length;flipped=false;renderCard()}});
+$('#nextCard').addEventListener('click',()=>{if(cards.length){cardIndex=(cardIndex+1)%cards.length;flipped=false;renderCard()}});
+$('#flashForm').addEventListener('submit',e=>{e.preventDefault();cards.push({question:$('#question').value.trim(),answer:$('#answer').value.trim()});store('cards',cards);cardIndex=cards.length-1;flipped=false;renderCard();e.target.reset();toast('Flashcard ajoutée ✓')});
+$('#deleteFlash').addEventListener('click',()=>{if(!cards.length)return;cards.splice(cardIndex,1);cardIndex=Math.max(0,Math.min(cardIndex,cards.length-1));store('cards',cards);flipped=false;renderCard();toast('Carte supprimée')});
+let total=25*60,left=total,interval=null;
+function showTimer(){let m=Math.floor(left/60),s=left%60;$('#time').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');let deg=360*(1-left/total);$('#timerRing').style.background=`conic-gradient(var(--purple) ${deg}deg,#252e4a ${deg}deg)`;$('#startBtn').textContent=interval?'Ⅱ Pause':'▶ Démarrer'}
+function stopTimer(){if(interval){clearInterval(interval);interval=null}showTimer()}
+$('#startBtn').addEventListener('click',()=>{if(interval){stopTimer();return}interval=setInterval(()=>{left--;showTimer();if(left<=0){stopTimer();left=0;showTimer();toast('Session terminée ! Prends une petite pause 🎉');try{new AudioContext().close()}catch{};if('Notification'in window&&Notification.permission==='granted')new Notification('StudyHub',{body:'Ta session est terminée !'})}},1000);showTimer()});
+$('#resetBtn').addEventListener('click',()=>{stopTimer();left=total;showTimer()});
+document.querySelectorAll('[data-min]').forEach(b=>b.addEventListener('click',()=>{stopTimer();document.querySelectorAll('[data-min]').forEach(x=>x.classList.remove('chosen'));b.classList.add('chosen');total=Number(b.dataset.min)*60;left=total;$('#timerLabel').textContent=b.dataset.label;showTimer()}));
+
+// Ambiance audio générée localement avec l'API Web Audio.
+let audioCtx=null, masterGain=null, rainSource=null, rainGain=null, droneNodes=[], pulseNodes=[];
+function ensureAudio(){
+  if(!audioCtx){audioCtx=new (window.AudioContext||window.webkitAudioContext)();masterGain=audioCtx.createGain();masterGain.gain.value=Number($('#volume').value)/100;masterGain.connect(audioCtx.destination);}
+  if(audioCtx.state==='suspended')audioCtx.resume();
+}
+function noiseBuffer(){
+  const buffer=audioCtx.createBuffer(1,audioCtx.sampleRate*3,audioCtx.sampleRate),data=buffer.getChannelData(0);
+  for(let i=0;i<data.length;i++)data[i]=Math.random()*2-1;
+  return buffer;
+}
+function startRain(){
+  if(!audioCtx||rainSource)return;
+  rainSource=audioCtx.createBufferSource();rainSource.buffer=noiseBuffer();rainSource.loop=true;
+  const filter=audioCtx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=850;
+  rainGain=audioCtx.createGain();rainGain.gain.value=.22;
+  rainSource.connect(filter);filter.connect(rainGain);rainGain.connect(masterGain);rainSource.start();
+}
+function stopRain(){if(rainSource){try{rainSource.stop()}catch{}rainSource.disconnect();rainSource=null}if(rainGain){rainGain.disconnect();rainGain=null}}
+function startDrone(){
+  if(!audioCtx||droneNodes.length)return;
+  [110,164.81,220].forEach((freq,i)=>{const osc=audioCtx.createOscillator(),gain=audioCtx.createGain(),filter=audioCtx.createBiquadFilter();osc.type=i===1?'triangle':'sine';osc.frequency.value=freq;filter.type='lowpass';filter.frequency.value=500;gain.gain.value=i===1?.018:.025;osc.connect(filter);filter.connect(gain);gain.connect(masterGain);osc.start();droneNodes.push({osc,gain,filter})});
+}
+function stopDrone(){droneNodes.forEach(n=>{try{n.osc.stop()}catch{};n.osc.disconnect();n.gain.disconnect()});droneNodes=[]}
+function startPulse(){
+ if(!audioCtx||pulseNodes.length)return;
+ const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();osc.type='sine';osc.frequency.value=432;gain.gain.value=.012;osc.connect(gain);gain.connect(masterGain);osc.start();pulseNodes.push({osc,gain});
+}
+function stopPulse(){pulseNodes.forEach(n=>{try{n.osc.stop()}catch{};n.osc.disconnect();n.gain.disconnect()});pulseNodes=[]}
+function syncAudio(){
+ if($('#rainToggle').checked)startRain();else stopRain();
+ if($('#droneToggle').checked)startDrone();else stopDrone();
+ if($('#toneToggle').checked)startPulse();else stopPulse();
+ const on=$('#rainToggle').checked||$('#droneToggle').checked||$('#toneToggle').checked;
+ $('#audioStatus').textContent=on?'AMBIANCE ACTIVE':'AUDIO PRÊT';
+}
+$('#audioStart').addEventListener('click',()=>{ensureAudio();if(!$('#rainToggle').checked&&!$('#droneToggle').checked&&!$('#toneToggle').checked)$('#droneToggle').checked=true;syncAudio();toast('Ambiance activée 🎧')});
+['rainToggle','droneToggle','toneToggle'].forEach(id=>$('#'+id).addEventListener('change',()=>{ensureAudio();syncAudio()}));
+$('#volume').addEventListener('input',()=>{if(masterGain)masterGain.gain.setTargetAtTime(Number($('#volume').value)/100,audioCtx.currentTime,.04)});
+$('#audioStop').addEventListener('click',()=>{$('#rainToggle').checked=false;$('#droneToggle').checked=false;$('#toneToggle').checked=false;stopRain();stopDrone();stopPulse();$('#audioStatus').textContent='AUDIO OFFLINE';toast('Ambiance coupée')});
+
+renderTasks();renderNotes();renderCard();showTimer();
+</script>
+</body></html>
